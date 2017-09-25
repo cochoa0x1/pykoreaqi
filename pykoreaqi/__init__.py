@@ -1,0 +1,1 @@
+from pykoreaqi.airkorea import *

@@ -1,0 +1,7 @@
+**.pyc
+**__pycache__
+**.ipynb-checkpoints
+**.DS_Store
+build/
+dist/
+pykoreaqi.egg-info/
