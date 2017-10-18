@@ -5,7 +5,7 @@ http://www.airkorea.or.kr/
 ## Setup
 
 ```bash
-git clone https://github.com/cochoa0x1/pykoreaqi.get
+git clone https://github.com/cochoa0x1/pykoreaqi.git
 
 cd pykoreaqi
 
