@@ -30,13 +30,14 @@ class AirKorea():
         data = json.loads(r.content)
         return data.get('tab1',[])
         
-    def get_all_realtime(self, delay=.1):
+    def get_all_realtime(self, delay=.1,metrics=None):
         ''''''
         station_keys = ['ENG_STATION_ADDR','STATION_ADDR','STATION_CODE','STATION_NAME','DM_X','DM_Y']
         measurement_keys = ['AVG24','BASE','GRADE','VALUE','DATA_TIME']
         stations={}
         
-        metrics = METRIC_TO_CODE.keys()
+        if metrics is None:
+            metrics = METRIC_TO_CODE.keys()
         
         #TODO: add retry logic
         #TODO: rename some keys like DM_X, DM_Y etc to lat/long 
