@@ -11,8 +11,9 @@ METRIC_TO_CODE ={'PM10':'10007',
                  'CAI':'KHAI'}
 
 class AirKorea():
-    def __init__(self):
+    def __init__(self,headers={}):
         self.base_url ='http://www.airkorea.or.kr'
+        self.headers=headers
         #TODO pass in custom headers and/or proxy settings here
         
     def _get_metric_realtime(self,metric_id):
@@ -24,10 +25,10 @@ class AirKorea():
             
         url = self.base_url + '/eng/real/tab1Search?itemCode=%s'%METRIC_TO_CODE[metric_id]
         
-        r = requests.get(url)
+        r = requests.get(url,headers=self.headers)
         r.raise_for_status()
         
-        data = json.loads(r.content)
+        data = json.loads(r.text)
         return data.get('tab1',[])
         
     def get_all_realtime(self, delay=.1,metrics=None):
